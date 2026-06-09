@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stitch & Fit Alterations</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #fafafa;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --accent: #c9a227;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* HERO */
+header {
+    position: relative;
+    text-align: center;
+    padding: 140px 20px 100px;
+    color: white;
+    overflow: hidden;
+}
+
+/* IMAGE */
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1606501126768-b78d4569d3f9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1);
+    animation: slowZoom 18s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 0;
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+header h1, header p, header a {
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    letter-spacing: -1px;
+}
+
+header p {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--accent);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+section {
+    max-width: 1050px;
+    margin: auto;
+    padding: 70px 20px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.services, .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.card, .step {
+    background: white;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.card:hover, .step:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    transition: 0.3s;
+}
+
+form {
+    background: white;
+    border: 1px solid #eee;
+    padding: 35px;
+    border-radius: 16px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+}
+
+/* BACK TO TOP */
+#topBtn {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    header h1 { font-size: 2.6rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Stitch & Fit Alterations</h1>
+    <p>Tailoring. Refinement. Perfect fit for every piece.</p>
+    <a href="#quote" class="btn" onclick="smoothScroll(event)">Request a Quote</a>
+</header>
+
+<section>
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card"><h3>Shirt Alterations</h3><p>Perfect shaping for a cleaner fit.</p></div>
+        <div class="card"><h3>Trouser Hemming</h3><p>Clean shortening and lengthening.</p></div>
+        <div class="card"><h3>Dress Alterations</h3><p>Elegant adjustments for perfect fit.</p></div>
+        <div class="card"><h3>Repairs</h3><p>Invisible mending and restoration work.</p></div>
+    </div>
+</section>
+
+<section>
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step"><h3>1. Request</h3><p>Submit your alteration request.</p></div>
+        <div class="step"><h3>2. Details</h3><p>Tell us about your garment.</p></div>
+        <div class="step"><h3>3. Quote</h3><p>We send pricing and timing.</p></div>
+        <div class="step"><h3>4. Finish</h3><p>Collect or post your item.</p></div>
+    </div>
+</section>
+
+<section id="quote">
+    <h2>Request an Alteration</h2>
+
+    <form action="https://formspree.io/f/mbdeyqjv" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number (optional)">
+
+        <select name="garment" id="garmentSelect" required>
+            <option value="">Select Garment</option>
+            <option>Shirt</option>
+            <option>Trousers</option>
+            <option>Dress</option>
+            <option>Jacket</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <div id="otherBox" style="display:none;">
+            <input type="text" name="other_specification" placeholder="Please specify">
+        </div>
+
+        <textarea name="details" placeholder="Describe your alteration..." required></textarea>
+
+        <button type="submit">Send Request</button>
+    </form>
+</section>
+
+<footer>
+    <p>Stitch & Fit Alterations</p>
+    <p>Phone: 01234 567890 | Email: info@stitchandfit.co.uk</p>
+</footer>
+
+<button id="topBtn">↑</button>
+
+<script>
+// smooth scroll
+function smoothScroll(event){
+    event.preventDefault();
+    document.querySelector("#quote").scrollIntoView({behavior:"smooth"});
+}
+
+// fade in
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("show");
+    });
+},{threshold:0.15});
+sections.forEach(s=>observer.observe(s));
+
+// other box
+const garmentSelect = document.getElementById("garmentSelect");
+const otherBox = document.getElementById("otherBox");
+
+garmentSelect.addEventListener("change", function(){
+    otherBox.style.display = this.value === "Other" ? "block" : "none";
+});
+
+// back to top
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", ()=>{
+    topBtn.style.display = window.scrollY > 400 ? "flex" : "none";
+});
+
+topBtn.addEventListener("click", ()=>{
+    window.scrollTo({top:0, behavior:"smooth"});
+});
+</script>
+
+</body>
+</html>
